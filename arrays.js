@@ -47,6 +47,15 @@ for (let i = 0; i < csvStr.length; i++) {
   }
 
 }
+//////////////////////////////////////////////////////////////
+// let csvStr2 = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor's Assistant,26";
+// const rows = csvStr2.split('\n');
+// const headers = rows[0].split(',')
+// const dataContent = [];
+
+// console.log(headers);
+// // const parsedData = [];
+
 
 //Part 2: Expanding Functionality
 
@@ -75,5 +84,22 @@ row.push(str);
 masterArrays.push(row);
 console.log(masterArrays);
 
-//Part 3: Transforming Data
+// //Part 3: Transforming Data
 
+function transformDataToArrayOfObjects(masterArrays) {
+    const headings = masterArrays[0].map(heading => heading.toLowerCase());
+    const objectsArray = [];
+    
+    for (let i = 1; i < masterArrays.length; i++) {
+        const obj = {};
+        for (let j = 0; j < headings.length; j++) {
+            obj[headings[j]] = masterArrays[i][j];
+        }
+        objectsArray.push(obj);
+    }
+    
+    return objectsArray;
+}
+
+const arrayOfObjects = transformDataToArrayOfObjects(masterArrays);
+console.log(arrayOfObjects);
