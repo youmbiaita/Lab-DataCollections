@@ -111,3 +111,29 @@ const insertData = arrayOfObjects.splice(1, 0, { id: "48", name: "Barry", occupa
 
 const addData = arrayOfObjects.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
  console.log(arrayOfObjects)
+ console.log(arrayOfObjects[2])
+
+
+ // Average age
+ let sumAge = 0;
+ for ( let a = 0; a < arrayOfObjects.length; a++){ 
+  sumAge = parseInt(arrayOfObjects[a].age);
+  console.log(sumAge)
+ }
+
+ const averageAge = sumAge / arrayOfObjects.length;
+
+ console.log(averageAge)
+
+ // Part 5: Final Circle
+ //create headers
+ const headers = Object.keys(arrayOfObjects[0]);
+
+// i converted objects to rows
+ const newRows = arrayOfObjects.map(r => headers.map(header => r[header]).join(','));
+
+ //Combine headers and rows
+ const newCsv = [headers.join(' '), ...newRows].join('\n');
+
+ console.log(newCsv)
+ 
