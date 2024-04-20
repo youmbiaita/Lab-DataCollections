@@ -1,7 +1,7 @@
 // Part1: Refactoring Old Code
 console.log("=========================================================");
 console.log("Part 1: Refactororing Old Code")
-console.log("============================================================")
+console.log("==========================================================\n")
 
 let csvStr2 = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor's Assistant,26";
 const rows = csvStr2.split('\n');
@@ -11,11 +11,9 @@ for (let s = 0; s < rows.length; s++) {
 }
 
 // Part 2: Expanding Functionality
-console.log("                                                            ")
-console.log("=========================================================");
+console.log("\n=========================================================");
 console.log("Part 2: Expanding Functionality")
-console.log("============================================================")
-console.log("                                                              ")
+console.log("===========================================================\n");
 let masterArrays = [];
 const rows3 = csvStr2.split('\n');
 let numOfColumn = rows3.length; // declare a variable
@@ -28,11 +26,9 @@ console.log("The master Array is:")
 console.log(masterArrays);
 
 // //Part 3: Transforming Data
-console.log("                                                            ")
-console.log("=========================================================");
+console.log("\n=========================================================");
 console.log("Part 3: Transforming Data")
-console.log("============================================================")
-console.log("                                                              ")
+console.log("============================================================\n");
 const heads = [];
 for (let k = 0; k < masterArrays[0].length; k++) {
   heads.push(masterArrays[0][k].toLowerCase()); // conversion to lower case
@@ -89,9 +85,10 @@ console.log("                                                              ")
 const headers = Object.keys(objectsArray[0]);
 
 // i converted objects to rows
-let newString = headers.join(" ") + "\n";
+let newString = headers.join(",") + "\\n";
 for (let i = 0; i < objectsArray.length; i++) {
-  newString += Object.values(objectsArray[i]).join(' ') + "\n";
+  newString += Object.values(objectsArray[i]).join(",") + "\\n";
 }
+
 console.log("New array after circle:");
 console.log(newString);
